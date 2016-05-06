@@ -49,11 +49,15 @@
 #   end
 # end
 
+set :phase_environment, 'Development' # Development, Test, Production 
 set :css_dir, 'stylesheets'
-
 set :js_dir, 'javascripts'
-
 set :images_dir, 'images'
+set :helper_dir, 'helper'
+
+
+
+
 
 # Build-specific configuration
 configure :build do
@@ -74,6 +78,18 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+
+  # Any files you want to ignore:
+  ignore '/javascripts/javascript-home/*'
+  ignore '/javascripts/javascript-desktop-ldms-login/*'
+
+  ignore '/stylesheets/stylesheet-home/*'
+  ignore '/stylesheets/stylesheet-desktop-ldms-Login/*'
+
+  ignore '/helper/*'  
+
+
+
 end
 
 
