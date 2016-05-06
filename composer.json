@@ -1,0 +1,18 @@
+{
+    "require": {
+    	"slim/slim": "2.*",
+        "vrana/notorm": "dev-master",
+        "mobiledetect/mobiledetectlib": "dev-master",
+        "arcanedev/qr-code": "dev-master",
+        "palanik/corsslim": "*",
+        "aferrandini/phpqrcode": "1.0.1",
+        "tuupola/slim-jwt-auth": "*",
+        "tuupola/slim-basic-auth": "*",
+        "proj4php/proj4php": "*",
+        "jmikola/geojson": "^1.0",
+        "fergusean/nusoap": "^0.9.5"
+    },
+    "config" : {
+        "vendor-dir" : "./source/packages"
+    }
+}

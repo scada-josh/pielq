@@ -1,0 +1,31 @@
+---
+title: LDMS - API
+layout: "layout-api"
+---
+
+<?php
+
+    date_default_timezone_set("Asia/Bangkok");
+
+    require_once '../../../../packages/autoload.php';
+
+    // Create and configure Slim app
+	/* Slim framework 2.x */
+	$app = new \Slim\Slim();
+
+
+	$app->get('/hello/:name', function ($name) use ($app) {
+
+        // $return_m = array("msg" => "สวัสดี");
+        $return_m = array("msg" => "สวัสดี, $name");
+
+        $app->response()->header("Content-Type", "application/json");
+        echo json_encode($return_m);
+
+	});
+
+
+	// Run app
+	$app->run();
+
+?>
