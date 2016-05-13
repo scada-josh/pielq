@@ -56,7 +56,8 @@ set :images_dir, 'images'
 set :helper_dir, 'helper'
 
 
-
+set :partials_desktop, 'src/desktop'
+set :partials_images, '../images'
 
 
 # Build-specific configuration

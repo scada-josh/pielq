@@ -1,6 +1,21 @@
 ---
 title: "LDMS - Home"
 layout: "layout-desktop-ldms-home"
+
+baseURL: "/iel/build/src/desktop/ldms/home/"
+loginURL: "../login/index.php"
+homeURL: "./"
+imageURL: "../../../../images"
+
+navBar_dashBoard_isActive: "active open selected"
+headerMenu_executiveSummary_isActive: "active"
+headerMenu_executiveSummary_href: "./"
+
+
+navBar_monitoring_isActive: ""
+headerMenu_fleet_isActive: ""
+headerMenu_fleet_href: "./fleet/"
+
 ---
 
 <!-- BEGIN CONTAINER -->
@@ -23,7 +38,7 @@ layout: "layout-desktop-ldms-home"
     <div class="container-fluid">
         <div class="page-content">
 
-            <%= partial "common-partials/_breadcrumbs" %>
+            <%= partial "home-partials/_breadcrumbs" %>
 
             <!-- BEGIN PAGE BASE CONTENT -->
 

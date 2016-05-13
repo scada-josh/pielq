@@ -1,0 +1,56 @@
+---
+title: "LDMS - Fleet Monitoring"
+layout: "layout-desktop-ldms-fleet"
+
+baseURL: "/iel/build/src/desktop/ldms/home/fleet/"
+loginURL: "../../login/index.php"
+homeURL: "./"
+imageURL: "../../../../../images"
+
+
+navBar_dashBoard_isActive: ""
+headerMenu_executiveSummary_isActive: ""
+headerMenu_executiveSummary_href: "../"
+
+
+navBar_monitoring_isActive: "active open selected"
+headerMenu_fleet_isActive: "active"
+headerMenu_fleet_href: "./"
+
+---
+
+<!-- BEGIN CONTAINER -->
+<div class="wrapper">
+    <!-- BEGIN HEADER -->
+    <header class="page-header">
+        <nav class="navbar mega-menu" role="navigation">
+            <div class="container-fluid">
+
+                <%= partial partials_desktop + "/ldms/home/common-partials/_navbar" %>
+
+                <%= partial partials_desktop + "/ldms/home/common-partials/_header-menu" %>
+
+            </div>
+            <!--/container-->
+        </nav>
+    </header>
+    <!-- END HEADER -->
+
+    <div class="container-fluid">
+        <div class="page-content">
+
+            <%= partial "fleet-partials/_breadcrumbs" %>
+
+            <!-- BEGIN PAGE BASE CONTENT -->
+
+            <div class="row">
+                 <%= partial "fleet-partials/_dataTable" %>
+            </div>
+            <!-- END PAGE BASE CONTENT -->
+        </div>
+        
+        <%= partial partials_desktop + "/ldms/home/common-partials/_footer" %>
+
+    </div>
+</div>
+<!-- END CONTAINER -->

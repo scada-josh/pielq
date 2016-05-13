@@ -1,3 +1,4 @@
+
                 <div class="clearfix navbar-fixed-top">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -11,7 +12,7 @@
                     <!-- End Toggle Button -->
                     <!-- BEGIN LOGO -->
                     <a id="index" class="page-logo" href="./">
-                        <img src="<%= '../../../../' + images_dir + '/ldms/ldms-logo.png' %>" alt="Logo"> 
+                        <img src="<%= current_page.data.imageURL + '/ldms/ldms-logo.png' %>" alt="Logo"> 
                     <!-- END LOGO -->
                     <!-- BEGIN SEARCH -->
                     <form class="search" action="#" method="GET">
@@ -35,7 +36,7 @@
                         <div class="btn-group-img btn-group">
                             <button type="button" class="btn btn-sm md-skip dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                 <span>Hi, Admin</span>
-                                <img src="<%= '../../../../' + images_dir + '/ldms/inter-express-logistics-logo.png' %>" alt="">
+                                <img src="<%= current_page.data.imageURL + '/ldms/inter-express-logistics-logo.png' %>" alt="">
                             </button>
                         </div>
                         <!-- END USER PROFILE -->
