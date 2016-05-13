@@ -4,6 +4,7 @@
   "dependencies": {
     "jquery-legacy": "jquery#^1",
     "jquery-modern": "jquery#~2.1.4",
-    "normalize-css": "~2.1.3"
+    "normalize-css": "~2.1.3",
+    "chosen-bootstrap": "^1.1.0"
   }
 }
