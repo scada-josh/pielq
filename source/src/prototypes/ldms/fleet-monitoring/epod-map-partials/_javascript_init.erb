@@ -1,0 +1,32 @@
+<script type="text/javascript">
+
+(function ($) {
+    "use strict";
+
+    ///////////////////////////////////////////////////// 
+    var map;
+    var marker;
+
+    /////////////////////////////////////////////////////
+
+    var fn = {
+
+        // Launch Functions
+        Launch: function () {
+            fn.Map_initialize();
+            fn.Apps();
+        },
+        // Map
+        <%= partial "epod-map-partials/js-partials/_fn_Map_initialize" %>
+        // Apps
+        <%= partial "epod-map-partials/js-partials/_fn_Apps" %>
+
+    };
+
+    $(document).ready(function () {
+        fn.Launch();
+    });
+
+})(jQuery);
+
+</script>

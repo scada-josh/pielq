@@ -1,0 +1,21 @@
+        Apps: function () {
+        	// console.log('Apps');
+
+        	$( "#station_selected_id" ).change(function () {
+			    // var str = "";
+			    // $( "select option:selected" ).each(function() {
+			    //   str += $( this ).text() + " ";
+			    // });
+			    
+			    // console.log(str);
+
+			    var optionSelected = $(this).find("option:selected");
+			    var valueSelected  = optionSelected.val();
+			    var textSelected   = optionSelected.text();
+
+			    console.log(valueSelected);
+			    console.log(textSelected);
+
+			  })
+
+        }

@@ -1,0 +1,51 @@
+    /**
+     *
+     * @apiName GetWebCourierList
+     * @apiGroup Fleet Manager
+     * @apiVersion 0.1.0
+     *
+     * @api {get} /fleetManager/getWebCourierList/ Call WebService getWebCourierList
+     * @apiDescription คำอธิบาย : ในส่วนนี้จะเรียก WebService getWebCourierList
+     *
+     */
+
+    function getWebCourierList($app, $client) {
+
+        $error = $client->getError();
+        if ($error) {
+            echo "<h2>Constructor error</h2><pre>" . $error . "</pre>";
+        }
+
+        /* ************************* */
+        /* เริ่มกระบวนการเชื่อมต่อ Web Service */
+        /* ************************* */
+        $result = $client->call('getWebCourierList', array("station_id" => "29"));
+        $mydata = json_decode($result["getWebCourierListResult"],true);
+
+        $reports = array();
+
+        for ($i=0; $i < count($mydata["array"]); $i++) { 
+
+            $reports[] = array(
+                    "car_licence" => $mydata["array"][$i]['car_licence'],
+                    "driver_name" => $mydata["array"][$i]['driver_name'],
+                    "driver_status" => $mydata["array"][$i]['driver_status'],
+                    "battery_level" => $mydata["array"][$i]['battery_level'],
+                    "latitude" => $mydata["array"][$i]['latitude'],
+                    "longitude" => $mydata["array"][$i]['longitude'],
+                );
+
+        }
+
+        $rowCount = count($mydata["array"]);
+
+        /* ************************* */
+        /* เริ่มกระบวนการส่งค่ากลับ */
+        /* ************************* */
+        $resultText = "success";
+
+        $reportResult = array("result" =>  $resultText, "count" => $rowCount, "rows" => $reports);
+        $app->response()->header("Content-Type", "application/json");
+        echo json_encode($reportResult);
+
+    };

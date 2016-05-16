@@ -1,0 +1,10 @@
+{
+    "require": {
+        "slim/slim": "2.*",
+        "vrana/notorm": "dev-master",
+        "fergusean/nusoap": "^0.9.5"
+    },
+    "config" : {
+        "vendor-dir" : "./packages"
+    }
+}

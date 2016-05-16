@@ -1,0 +1,45 @@
+---
+title: LDMS - Fleet Monitoring - API
+layout: "layout-api"
+---
+<?php
+ 
+    date_default_timezone_set("Asia/Bangkok");
+ 
+    require_once '../../packages/autoload.php';
+ 
+    // Create and configure Slim app
+    /* Slim framework 2.x */
+    $app = new \Slim\Slim();
+ 
+     /* NuSOAP */
+    $client = new nusoap_client("http://58.137.5.126/epodws/service.asmx?wsdl", true);
+    // $client->soap_defencoding = 'UTF-8';
+    $endpoint = "http://58.137.5.126/epodws/service.asmx?wsdl";
+    $client->forceEndpoint = $endpoint;
+
+    $client->soap_defencoding = 'UTF-8';
+    $client->decode_utf8 = false; // แก้ปัญหาตัวอักษรภาษาไทยแสดง ???????? (web service unicode characters dispaly as question marks)
+    $client->encode_utf8 = true;
+
+
+
+    /* Test Manager */
+    <%= partial "/TestManager/_hello" %>
+
+    /* Fleet manager */
+    $app->get('/fleetManager/getWebCourierList/',function() use ($app, $client) { getWebCourierList($app, $client); });
+ 
+
+
+
+
+    // Run app
+    $app->run();
+    
+    /* Test Manager Partial */
+
+
+    /* Fleet Manager Partial */
+    <%= partial "/FleetManager/_getWebCourierList" %>
+?>
