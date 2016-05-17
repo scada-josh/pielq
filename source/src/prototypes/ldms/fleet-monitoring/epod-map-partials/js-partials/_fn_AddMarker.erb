@@ -1,0 +1,27 @@
+AddMarker: function (latitude, longitude, contentString) {
+	       // console.log('AddMarker');
+
+	       var location = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
+
+	       var marker = new google.maps.Marker({
+	       	position: location,
+	       	map: map
+	       });
+	       markers.push(marker);
+
+	       google.maps.event.addListener(markers[markers.length - 1],'click',function() {
+	       	// console.log("test");
+
+	       	// if (infowindow) {
+	       	// 	infowindow.close();
+	       	// }
+	       	// map.setZoom(15);
+	       	// map.setCenter(markers[markers.length - 1].getPosition());
+
+	       	fn.ZoomToCourier(latitude, longitude, contentString); 
+
+	       });
+          
+
+    
+        },

@@ -6,16 +6,54 @@
 			    // $( "select option:selected" ).each(function() {
 			    //   str += $( this ).text() + " ";
 			    // });
-			    
 			    // console.log(str);
 
 			    var optionSelected = $(this).find("option:selected");
 			    var valueSelected  = optionSelected.val();
 			    var textSelected   = optionSelected.text();
 
-			    console.log(valueSelected);
-			    console.log(textSelected);
+			       var postParams = {
+			          "stationID": valueSelected
+			      };
+
+			      $.ajax({
+			        url: './api/restful-api/fleetManager/getWebCourierList/',
+			        type: 'POST',
+			        contentType: 'application/json',
+			        dataType: 'json',
+			        data: JSON.stringify(postParams),
+			        cache: false,
+			        // async: false,
+			        success: function(data) {
+			             // console.log(data);
+			             fn.CourierListRenderer(data);
+
+			        },
+			        error: function(jqXHR, textStatus, errorThrown){
+			                alert('init error: ' + textStatus);
+			        }
+			      });
 
 			  })
+
+
+        	$(document).on('click', '.zoomToCourier' , function() {
+        		// console.log($(this));
+
+        		var lat = $(this).attr('data-lat');
+        		var lng = $(this).attr('data-lng');
+        		var contentString = $(this).text();
+
+        		// console.log(lat);
+        		// console.log(lng);
+        		// console.log($(this));
+        		// console.log($(this).text());
+        		
+        		fn.ZoomToCourier(lat, lng, contentString); 
+
+        		return false; 
+        	});
+
+
 
         }

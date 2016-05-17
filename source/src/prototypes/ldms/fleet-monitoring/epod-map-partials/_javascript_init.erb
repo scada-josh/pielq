@@ -6,6 +6,8 @@
     ///////////////////////////////////////////////////// 
     var map;
     var marker;
+    var markers = [];
+    var infowindow;
 
     /////////////////////////////////////////////////////
 
@@ -18,6 +20,11 @@
         },
         // Map
         <%= partial "epod-map-partials/js-partials/_fn_Map_initialize" %>
+        <%= partial "epod-map-partials/js-partials/_fn_ZoomToCourier" %>
+        <%= partial "epod-map-partials/js-partials/_fn_AddMarker" %>
+        <%= partial "epod-map-partials/js-partials/_fn_RemoveAllMarker" %>
+        // Display CourierList
+        <%= partial "epod-map-partials/js-partials/_fn_CourierListRenderer" %>
         // Apps
         <%= partial "epod-map-partials/js-partials/_fn_Apps" %>
 

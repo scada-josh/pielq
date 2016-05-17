@@ -1,0 +1,61 @@
+ZoomToCourier: function (lat, lng, contentString) {
+	       // console.log('ZoomToCourier');
+	       console.log(lat + ", " + lng)
+
+         var latLng = new google.maps.LatLng(parseFloat(lat),parseFloat(lng)); //Makes a latlng
+         map.panTo(latLng); //Make map global
+         map.setZoom(15);
+
+         if (infowindow) {
+          infowindow.close();
+         }
+
+        infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+
+        for (var i = 0; i < markers.length; i++) {
+          // markers[i].setMap(null);
+          // console.log(markers[i]);
+          // console.log(markers[i].position.lat());
+          // console.log(markers[i].position.lng());
+
+          // console.log(markers[i].position.lat());
+          // console.log(parseFloat(lat));
+
+          // if ((markers[i].position.lat() == parseFloat(lat)) && (markers[i].position.lng() == parseFloat(lng))) {
+          //     infowindow.open(map, markers[i]);
+          //     console.log("infowindow is open");
+          // }
+
+          if (markers[i].position.lat() == parseFloat(lat)) {
+              infowindow.open(map, markers[i]);
+              // console.log("infowindow is open");
+          }
+
+         }
+
+         // infowindow.open(map, marker);
+
+         // var myCenter=new google.maps.LatLng(parseFloat(lat),parseFloat(lng));
+
+         //  marker=new google.maps.Marker({
+         //                    position:myCenter,
+         //                    animation:google.maps.Animation.BOUNCE
+         //                  });
+
+         //  // marker.setMap(map);
+
+         //  map.setZoom(15);
+         //  map.setCenter(marker.getPosition());
+
+
+
+          // google.maps.event.addListener(marker,'click',function() {
+          //   map.setZoom(15);
+          //   map.setCenter(marker.getPosition());
+          // });
+
+    
+        },

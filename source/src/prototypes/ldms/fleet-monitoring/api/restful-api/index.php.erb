@@ -28,7 +28,7 @@ layout: "layout-api"
     <%= partial "/TestManager/_hello" %>
 
     /* Fleet manager */
-    $app->get('/fleetManager/getWebCourierList/',function() use ($app, $client) { getWebCourierList($app, $client); });
+    $app->post('/fleetManager/getWebCourierList/',function() use ($app, $client) { getWebCourierList($app, $client); });
  
 
 

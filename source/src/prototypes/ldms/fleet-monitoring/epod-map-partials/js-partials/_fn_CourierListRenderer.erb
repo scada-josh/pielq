@@ -1,0 +1,95 @@
+CourierListRenderer: function (data) {
+	       // console.log('CourierListRenderer');
+
+         // console.log(data);
+
+         fn.RemoveAllMarker();
+
+          if (data.count != '0') {
+
+              var renderResult;
+              renderResult = '<table class="table table-bordered">';
+              renderResult += '<tr class="danger">';
+              renderResult += '<th>ทะเบียนรถ</th>';
+              renderResult += '<th>ชื่อคนขับรถ</th>';
+              renderResult += '<th>สถานะ</th>';
+              renderResult += '<th>แบตเตอรี่</th>';
+              renderResult += '</tr>';
+
+              $.each(data.rows, function(i, item) {
+                  
+                  // console.log(item.car_licence);
+                  // console.log(item.driver_name);
+                  // console.log(item.driver_status);
+                  // console.log(item.battery_level);
+                  // console.log(item.latitude);
+                  // console.log(item.longitude);
+
+
+
+
+                  renderResult += '<tr>';
+
+                  if ((item.latitude) && (item.longitude)) {
+                    renderResult += '<td><a class="zoomToCourier" href="#" data-lat="'+ item.latitude +'" data-lng="'+ item.longitude +'">' + item.car_licence + '</a></td>';
+
+                    // var newMarker = {lat: parseFloat(item.latitude), lng: parseFloat(item.longitude)};
+                    // fn.AddMarker(newMarker);
+
+                      fn.AddMarker(item.latitude, item.longitude, item.car_licence);
+
+                  } else {
+                    renderResult += '<td>' + item.car_licence + '</td>';
+                  }
+                  // renderResult += '<td><a class="zoomToCourier" href="#" data-lat="'+ item.latitude +'" data-lng="'+ item.longitude +'">' + item.car_licence + '</a></td>';
+                  renderResult += '<td>' + item.driver_name + '</td>';
+                  renderResult += '<td align="center">';
+                    if (item.driver_status != '12') {
+                        renderResult += '<span class=\"glyphicon glyphicon-ok-circle\" aria-hidden=\"true\"\ style=\"color:green\"></span>';
+                    } else {
+                        renderResult += '<span class=\"glyphicon glyphicon-ban-circle\" aria-hidden=\"true\"\ style=\"color:red\"></span>';
+                    }
+                  renderResult += '</td>';
+
+                  renderResult += '<td align="center">';
+                    if ((parseInt(item.battery_level) <= 50) && (item.battery_level)) {
+                        renderResult += '<span class=\"glyphicon glyphicon-phone\" aria-hidden=\"true\"\ style=\"color:#ffbf00\"></span>';
+                        renderResult += item.battery_level;
+                        renderResult += '<span class=\"glyphicon glyphicon-flash\" aria-hidden=\"true\"\ style=\"color:#00e6e6\"></span>';
+                    } else if((parseInt(item.battery_level) > 50) && (item.battery_level)) {
+                        renderResult += '<span class=\"glyphicon glyphicon-phone\" aria-hidden=\"true\"\ style=\"color:#009900\"></span>';
+                        renderResult += item.battery_level;
+                        renderResult += '<span class=\"glyphicon glyphicon-flash\" aria-hidden=\"true\"\ style=\"color:#00e6e6\"></span>';
+                    } else {
+                        renderResult += '-';
+                    }
+                  renderResult += '</td>';
+
+
+                  renderResult += '</tr>';
+
+              });
+
+              renderResult += '</table>';
+
+              $("#CourierListID").html(renderResult);
+
+                
+          } else {
+
+            var renderResult;
+              renderResult = '<table class="table table-bordered">';
+              renderResult += '<tr class="danger">';
+              renderResult += '<th>ทะเบียนรถ</th>';
+              renderResult += '<th>ชื่อคนขับรถ</th>';
+              renderResult += '<th>สถานะ</th>';
+              renderResult += '<th>แบตเตอรี่</th>';
+              renderResult += '</tr>';
+              renderResult += '</table>';
+
+            $("#CourierListID").html(renderResult);
+            // alert('ไม่พบข้อมูลคนขับรถ');
+          }
+
+    
+        },

@@ -10,21 +10,7 @@ Map_initialize: function () {
           map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
 
-          var myCenter=new google.maps.LatLng(13.612694,100.547933);
-
-          marker=new google.maps.Marker({
-                            position:myCenter,
-                            animation:google.maps.Animation.BOUNCE
-                          });
-
-          marker.setMap(map);
-
-
-
-          google.maps.event.addListener(marker,'click',function() {
-            map.setZoom(15);
-            map.setCenter(marker.getPosition());
-          });
+          
 
     
         },
