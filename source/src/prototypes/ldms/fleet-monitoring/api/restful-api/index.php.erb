@@ -15,8 +15,25 @@ layout: "layout-api"
      /* NuSOAP */
     $client = new nusoap_client("http://58.137.5.126/epodws/service.asmx?wsdl", true);
     // $client->soap_defencoding = 'UTF-8';
-    $endpoint = "http://58.137.5.126/epodws/service.asmx?wsdl";
-    $client->forceEndpoint = $endpoint;
+
+<% if config[:phase_environment] == "Development" %>
+
+    /* forceEndpoint Partial : Localhost (Internet) */
+    <%= partial "/phaseEnvironment-partials/_forceEndpointViaInternet" %>
+
+<% elsif config[:phase_environment] == "Test" %>
+
+    /* forceEndpoint Partial : Localhost (Intranet) */
+    <%= partial "/phaseEnvironment-partials/_forceEndpointViaIntranet" %>
+
+<% elsif config[:phase_environment] == "Production" %>
+
+    /* forceEndpoint Partial : Production (Intranet) */
+    <%= partial "/phaseEnvironment-partials/_forceEndpointViaIntranet" %>
+
+<% end %>
+
+
 
     $client->soap_defencoding = 'UTF-8';
     $client->decode_utf8 = false; // แก้ปัญหาตัวอักษรภาษาไทยแสดง ???????? (web service unicode characters dispaly as question marks)

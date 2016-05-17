@@ -89,7 +89,24 @@ configure :build do
 
   ignore '/helper/*'  
 
+  ignore '/javascripts/javascript-home/*'
 
+  ignore '/src/prototypes/ldms/fleet-monitoring/samples/*'
+  ignore '/src/prototypes/ldms/fleet-monitoring/WebService1.php'
+  ignore '/src/prototypes/ldms/fleet-monitoring/WebService2.php'
+  ignore '/src/prototypes/ldms/fleet-monitoring/login.php'
+  ignore '/src/prototypes/ldms/fleet-monitoring/login_form.php'
+  ignore '/src/prototypes/ldms/fleet-monitoring/nusoap-0.9.5.zip'
+  ignore '/src/prototypes/ldms/fleet-monitoring/test.php'
+  ignore '/src/prototypes/ldms/fleet-monitoring/test1.php'
+  ignore '/src/prototypes/ldms/fleet-monitoring/testcode.php'
+  ignore '/src/prototypes/ldms/fleet-monitoring/code.php'
+  ignore '/src/prototypes/ldms/fleet-monitoring/bootstrapmap.css'
+  ignore '/src/prototypes/ldms/fleet-monitoring/bootstrapmap.js'
+  ignore '/src/prototypes/ldms/fleet-monitoring/getWebStation.php'
+  ignore '/src/prototypes/ldms/fleet-monitoring/composer.json'
+  ignore '/src/prototypes/ldms/fleet-monitoring/composer.lock'
+  ignore '/src/prototypes/ldms/fleet-monitoring/composer.phar'
 
 end
 

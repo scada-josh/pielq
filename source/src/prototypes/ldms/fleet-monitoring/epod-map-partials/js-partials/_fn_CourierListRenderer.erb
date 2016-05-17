@@ -54,14 +54,14 @@ CourierListRenderer: function (data) {
                   renderResult += '<td align="center">';
                     if ((parseInt(item.battery_level) <= 50) && (item.battery_level)) {
                         renderResult += '<span class=\"glyphicon glyphicon-phone\" aria-hidden=\"true\"\ style=\"color:#ffbf00\"></span>';
-                        renderResult += item.battery_level;
+                        renderResult += parseInt(item.battery_level);
                         renderResult += '<span class=\"glyphicon glyphicon-flash\" aria-hidden=\"true\"\ style=\"color:#00e6e6\"></span>';
                     } else if((parseInt(item.battery_level) > 50) && (item.battery_level)) {
                         renderResult += '<span class=\"glyphicon glyphicon-phone\" aria-hidden=\"true\"\ style=\"color:#009900\"></span>';
-                        renderResult += item.battery_level;
+                        renderResult += parseInt(item.battery_level);
                         renderResult += '<span class=\"glyphicon glyphicon-flash\" aria-hidden=\"true\"\ style=\"color:#00e6e6\"></span>';
                     } else {
-                        renderResult += '-';
+                        renderResult += '-'; 
                     }
                   renderResult += '</td>';
 

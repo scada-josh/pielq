@@ -43,8 +43,24 @@ layout: "layout-blank"
               $client->decode_utf8 = false;
               $client->encode_utf8 = true;
 
-              $endpoint = "http://58.137.5.126/epodws/service.asmx?wsdl";
-              $client->forceEndpoint = $endpoint;
+
+
+<% if config[:phase_environment] == "Development" %>
+
+    /* forceEndpoint Partial : Localhost (Internet) */
+    <%= partial "/api/restful-api/phaseEnvironment-partials/_forceEndpointViaInternet" %>
+
+<% elsif config[:phase_environment] == "Test" %>
+
+    /* forceEndpoint Partial : Localhost (Intranet) */
+    <%= partial "/api/restful-api/phaseEnvironment-partials/_forceEndpointViaIntranet" %>
+
+<% elsif config[:phase_environment] == "Production" %>
+
+    /* forceEndpoint Partial : Production (Intranet) */
+    <%= partial "/api/restful-api/phaseEnvironment-partials/_forceEndpointViaIntranet" %>
+
+<% end %>
 
 
               $params = array(
