@@ -1,0 +1,14 @@
+<%
+suffixArray = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27']
+i = 0
+%>
+<% suffixArray.each do |suffix| %>
+<% i = i + 1 %>
+<%= "sketchObj.btnOperator#{suffix}.on Events.Click, ->" %>
+<%= "	sketchObj.btnBackToMaster.opacity = 1" %>
+<%= "	pages.snapToPage pages.content.subLayers[#{i}], no" %>
+
+<% end %>
+
+
+

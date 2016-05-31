@@ -20,3 +20,5 @@ gem 'sprockets', '~> 2.0'
 gem "middleman-minify-html"
 
 gem 'font-awesome-middleman'
+
+gem "middleman-blog", "~> 3.5.3"

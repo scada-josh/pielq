@@ -1,0 +1,46 @@
+# Create a ScrollComponent 
+
+
+# Import file "IEL - Workflow by FramerJS"
+sketchObj = Framer.Importer.load("imported/IEL - Workflow by FramerJS@1x")
+
+
+<%= partial "partials/_set_all_artboards_visible" %>
+
+
+sketchObj.btnBackToMaster.opacity = 0
+
+# For a persistent navBar, we set its superLayer (parent layer) to the device. Now, it's no longer contained within artboardA.
+sketchObj.statusBar.superLayer = Framer.Device.screen
+sketchObj.statusBar.y = 10
+sketchObj.statusBar.x = 15
+
+sketchObj.btnBackToMaster.superLayer = Framer.Device.screen
+sketchObj.btnBackToMaster.y = 60
+sketchObj.btnBackToMaster.x = 15
+
+
+
+# Wrap the content layer within a ScrollComponent
+scroll = ScrollComponent.wrap(sketchObj.contentMain)
+scroll.width = screen.width 
+scroll.height = screen.height - 60
+scroll.scrollVertical = true
+scroll.scrollHorizontal = true
+
+
+<%= partial "partials/_set_scrollable_all_content" %>
+	
+<%= partial "partials/_set_artboards_as_pages" %>
+
+<%= partial "partials/_set_all_events_click" %>
+
+
+sketchObj.btnBackToMaster.on Events.Click, ->
+# 	print('btnBackToMaster')
+	sketchObj.btnBackToMaster.opacity = 0
+	pages.snapToPage pages.content.subLayers[0], no
+
+
+
+

@@ -1,4 +1,21 @@
 ###
+# Blog settings
+###
+
+# Time.zone = "UTC"
+Time.zone = "Bangkok"
+
+activate :blog do |blog|
+  # This will add a prefix to all links, template references and source paths
+  blog.prefix = "/src/desktop/blogs/"
+
+  blog.permalink = "{category}/{year}/{month}/{day}/{title}.html"
+  # Matcher for blog source files
+  blog.sources = "{category}/{year}-{month}-{day}-{title}.html"
+end
+
+
+###
 # Compass
 ###
 
@@ -58,6 +75,8 @@ set :helper_dir, 'helper'
 
 set :partials_desktop, 'src/desktop'
 set :partials_images, '../images'
+
+set :blog_dir, 'src/desktop/blogs/'
 
 
 # Build-specific configuration

@@ -1,0 +1,42 @@
+                <!-- BEGIN HEADER MENU -->
+                <div class="nav-collapse collapse navbar-collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown dropdown-fw  <%= current_page.data.navBar_dashBoard_isActive %>">
+                            <a href="javascript:;" class="">
+                                <i class="fa fa-dashboard"></i> iTMS </a>
+                            <ul class="dropdown-menu dropdown-menu-fw">
+                                <li class="<%= current_page.data.headerMenu_executiveSummary_isActive %>">
+                                    <a href="<%= current_page.data.headerMenu_executiveSummary_href %>"><i class="icon-bar-chart"></i> iTMS knowledge portal </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-fw  <%= current_page.data.navBar_monitoring_isActive %>">
+                            <a href="javascript:;" class="text-uppercase">
+                                <i class="icon-screen-desktop"></i> LDMS </a>
+                            <ul class="dropdown-menu dropdown-menu-fw">
+                                <li class="<%= current_page.data.headerMenu_fleet_isActive %>">
+                                        <a href="<%= current_page.data.headerMenu_fleet_href %>"> <i class="fa fa-truck"></i> LDMS knowledge portal </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-fw  <%= current_page.data.navBar_monitoring_isActive %>">
+                            <a href="javascript:;" class="text-uppercase">
+                                <i class="icon-screen-desktop"></i> Reports </a>
+                            <ul class="dropdown-menu dropdown-menu-fw">
+                                <li class="<%= current_page.data.headerMenu_fleet_isActive %>">
+                                        <a href="<%= current_page.data.headerMenu_fleet_href %>"> <i class="fa fa-truck"></i> Reports </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropdown-fw  <%= current_page.data.navBar_monitoring_isActive %>">
+                            <a href="javascript:;" class="text-uppercase">
+                                <i class="icon-screen-desktop"></i> FAQ </a>
+                            <ul class="dropdown-menu dropdown-menu-fw">
+                                <li class="<%= current_page.data.headerMenu_fleet_isActive %>">
+                                        <a href="<%= current_page.data.headerMenu_fleet_href %>"> <i class="fa fa-truck"></i> Frequently asked questions (FAQ) </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END HEADER MENU -->
